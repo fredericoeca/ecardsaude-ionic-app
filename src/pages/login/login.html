@@ -1,0 +1,34 @@
+<ion-header>
+
+    <ion-navbar color="info">
+      <ion-title>eVACINA</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <ion-list inset>
+  
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input formControlName="email" type="text"></ion-input>
+        </ion-item>
+               
+        <ion-item>
+          <ion-label floating>Senha</ion-label>
+          <ion-input formControlName="senha" type="password"></ion-input>
+        </ion-item>
+      
+        <button class="btn-login" ion-button color="info" [disabled]="!loginForm.valid" full>entrar</button>
+
+      </ion-list>         
+    </form>
+
+    <ion-list class="btn-register">
+      <button ion-button color="secondary" (click)="goToCadastrar()" full>cadastrar-se</button>
+      <button ion-button class="btn-esqueceu-senha" color="info" (click)="goToRecovery()" clear>Esqueceu a senha?</button>
+    </ion-list>    
+
+  </ion-content>
+  

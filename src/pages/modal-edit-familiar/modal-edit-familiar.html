@@ -1,0 +1,56 @@
+<ion-header>
+
+    <ion-navbar color="info">
+        <ion-buttons class="btn-dismiss" start>
+            <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+          </ion-buttons>
+        <ion-title>Editar familiar</ion-title>
+      </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <form [formGroup]="editFamiliarForm" (ngSubmit)="updateFamiliar()">
+      <ion-list inset>
+        <ion-item class="input-left">
+          <ion-input type="text" formControlName="nome" value={{familiar.nome}} placeholder="Nome"></ion-input>
+        </ion-item> 
+        <ion-item class="input-left">
+          <ion-input type="text" formControlName="parentesco" value={{familiar.parentesco}} placeholder="Parentesco"></ion-input>
+        </ion-item>
+        <ion-item class="input-left">
+          <ion-label class="label-margin-left">{{familiar.nascimento | date: 'dd/MM/yyyy' : 'UTC'}}</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="nascimento"
+            cancelText=Cancelar doneText=Ok></ion-datetime>
+        </ion-item>  
+        <ion-item class="input-left">
+            <ion-label class="label-margin-left">{{familiar.tipo_sanguineo}}</ion-label>
+            <ion-select  formControlName="tipo_sanguineo" interface="popover">
+              <ion-option value="A+">A+</ion-option>
+              <ion-option value="A-">A-</ion-option>
+              <ion-option value="B+">B+</ion-option>
+              <ion-option value="B-">B-</ion-option>
+              <ion-option value="AB+">AB+</ion-option>
+              <ion-option value="AB-">AB-</ion-option>
+              <ion-option value="O+">O+</ion-option>
+              <ion-option value="O-">O-</ion-option>
+            </ion-select>>-->
+        </ion-item>
+        <ion-item class="input-left">
+            <ion-label class="label-margin-left">{{familiar.genero}}</ion-label>
+            <ion-select formControlName="genero" interface="popover">
+              <ion-option value="Masculino">Masculino</ion-option>
+              <ion-option value="Feminino">Feminino</ion-option>
+            </ion-select>
+        </ion-item>        
+        <ion-list class="btn-edit">
+          <button ion-button color="info" [disabled]="!editFamiliarForm.valid" full>editar</button>
+        </ion-list>       
+      </ion-list>
+    </form>
+    <ion-list class="btn-apagar">
+      <button ion-button color="danger" (click)="delFamiliar()" full>Apagar</button>
+    </ion-list>
+
+</ion-content>

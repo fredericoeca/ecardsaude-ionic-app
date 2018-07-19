@@ -1,0 +1,66 @@
+page-familiares {
+
+    .text-dado {
+        font-size: 90%;
+    }
+
+    .segment-md .segment-button {
+        font-size: 1rem;
+        border-bottom: transparent;
+        background-color: #ffffff;
+        color: #1e7e34;
+    }
+
+    .segment-md .segment-button.segment-activated {
+        border-top: solid 2px #1e7e34;
+        border-bottom: transparent;
+        background-color: #ffffff;
+        color: #1e7e34;
+        font-weight: bold;
+    }
+
+    .img-btn{
+        width: 60%;
+        margin: 10%;
+    }
+
+    .title-color {
+        color: #1e7e34;
+    }
+
+    .card-success {
+        border-left: solid 4px #1e7e34;
+    }
+
+    .pd-item {
+        padding-left: 16px;
+    }
+
+    .float-right{
+        float: right!important;
+    }
+
+    .pr {
+        padding-right: 16px;
+    }
+
+    .pb-1 {
+        padding-bottom: 0;
+    }
+
+    .mb-1 {
+        margin-bottom: 0;
+    }
+
+    .btn {
+        justify-content: center;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+        border-left: solid 2px #1e7e34;
+        border-top: solid 1px #E8E8E8;
+        border-bottom: solid 1px #E8E8E8;
+        border-right: solid 1px #E8E8E8;
+        font-size: 0.8rem;
+        width: 18%; 
+    }
+}

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="info">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Notificações</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div *ngFor="let n of notificacoes">
+    <ion-card *ngIf="localizacao(n) && n.status">
+      <ion-card-header color="success">
+        {{n.titulo}}<br />
+        <small>{{n.tema}}</small>
+      </ion-card-header>
+      <ion-card-content>        
+        <p class="text text-pub">{{n.descricao}}</p>
+        <p class="regi text-pub">Local: {{n.regiao}}</p>
+      </ion-card-content>
+      <ion-row class="prow">
+        <ion-col col-9>
+          <p class="text-pub"><ion-icon color="success" name="checkmark-circle"></ion-icon>&nbsp;
+            {{n.dataPublicacao | date:'dd/MM/yyyy - HH:mm'}}</p>
+          <small>Fonte: {{n.fonte}}</small>
+        </ion-col>
+        <ion-col col-3 center text-center>
+          <span *ngIf="islike(n)">
+            <button ion-button class="btn-pad" (click)="unlike(n._id)" clear>
+              <ion-icon name="heart"></ion-icon>
+            </button>
+          </span>
+          <span *ngIf="!islike(n)">
+            <button ion-button class="btn-pad" (click)="like(n._id)" mini clear>
+              <ion-icon name="heart-outline"></ion-icon>
+            </button>
+          </span>
+          <div class="n-curtidas">
+            <span class="p-1">{{countLike(n)}}</span>
+          </div>
+        </ion-col>
+      </ion-row>
+    
+    </ion-card>
+  </div>
+</ion-content>

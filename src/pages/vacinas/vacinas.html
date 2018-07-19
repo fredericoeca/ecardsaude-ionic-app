@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar color="info">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Vacinas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+      
+      <div *ngFor="let v of vacinas">
+        <ion-card class="card-warning" *ngIf="v.grupoAlvo === 'Criança' && grupo === 'Criança'" >
+          <ion-card-header color="warning">
+            {{v.vacina}}
+          </ion-card-header>
+          <ion-card-content>
+            <div class="float-right">
+                <button ion-item (click)="openModalVacina(v)">
+                  <ion-icon class="size-icon" name="open" color="warning"></ion-icon>
+                </button>
+              </div>
+            {{exIdade(v)}}<br />
+            {{v.dose}}
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="card-success" *ngIf="v.grupoAlvo === 'Adolecente' && grupo === 'Adolecente'">
+          <ion-card-header color="success">
+            {{v.vacina}}
+          </ion-card-header>
+          <ion-card-content>
+            <div class="float-right">
+                <button ion-item (click)="openModalVacina(v)">
+                  <ion-icon class="size-icon" name="open" color="success"></ion-icon>
+                </button>
+              </div>
+            {{exIdade(v)}}<br />
+            {{v.dose}}        
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="card-info" *ngIf="v.grupoAlvo === 'Adulto' && grupo === 'Adulto'">
+          <ion-card-header color="info">
+            {{v.vacina}}
+          </ion-card-header>
+          <ion-card-content>
+            <div class="float-right">
+                <button ion-item (click)="openModalVacina(v)">
+                  <ion-icon class="size-icon" name="open" color="info"></ion-icon>
+                </button>
+              </div>
+            {{exIdade(v)}}<br />  
+            {{v.dose}}            
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="card-secondary" *ngIf="v.grupoAlvo === 'Idoso' && grupo === 'Idoso'">
+          <ion-card-header color="secondary">
+            {{v.vacina}}              
+          </ion-card-header>
+          <ion-card-content>
+            <div class="float-right">
+                <button ion-item (click)="openModalVacina(v)">
+                  <ion-icon class="size-icon" name="open" color="secondary"></ion-icon>
+                </button>
+              </div>
+            {{exIdade(v)}}<br />  
+            {{v.dose}}          
+          </ion-card-content>
+        </ion-card>
+        <ion-card class="card-danger" *ngIf="v.grupoAlvo === 'Gestante' && grupo === 'Gestante'">
+          <ion-card-header color="danger">
+            {{v.vacina}}
+          </ion-card-header>
+          <ion-card-content>
+            <div class="float-right">
+                <button ion-item (click)="openModalVacina(v)">  
+                  <ion-icon class="size-icon" name="open" color="danger"></ion-icon>
+                </button>
+              </div>
+            {{exIdade(v)}} de gestação<br />
+            {{v.dose}}            
+          </ion-card-content>
+        </ion-card>
+      </div>     
+
+    </ion-list>
+
+  </ion-content>
+
+<ion-footer class="height-footer">      
+    <ion-segment [(ngModel)]="grupo" color="info"> 
+      <ion-segment-button value="Criança">
+        Criança
+      </ion-segment-button>
+      <ion-segment-button value="Adolecente">
+        Jovem
+      </ion-segment-button>
+      <ion-segment-button value="Adulto">
+        Adulto 
+      </ion-segment-button>
+      <ion-segment-button value="Idoso">
+        Idoso
+      </ion-segment-button>
+      <ion-segment-button value="Gestante">
+        Gestante
+      </ion-segment-button>
+    </ion-segment>      
+  </ion-footer>

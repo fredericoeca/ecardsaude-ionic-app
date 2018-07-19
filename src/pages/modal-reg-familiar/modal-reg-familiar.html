@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar color="info">
+    <ion-buttons class="btn-dismiss" start>
+        <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    <ion-title>Registrar familiar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <form [formGroup]="registroFamiliarForm" (ngSubmit)="registerFamiliar()">
+        <ion-list inset>
+          <ion-item class="input-left">
+            <ion-input type="text" formControlName="nome" placeholder="Nome"></ion-input>
+          </ion-item> 
+          <ion-item class="input-left">
+            <ion-input type="text" formControlName="parentesco" placeholder="Parentesco"></ion-input>
+          </ion-item>
+          <ion-item class="input-left">
+            <ion-label class="label-margin-left">Nascimento</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="nascimento"
+              cancelText=Cancelar doneText=Ok></ion-datetime>
+          </ion-item>   
+          <ion-item class="input-left">
+              <ion-label class="label-margin-left">Tipo Sanguineo</ion-label>
+              <ion-select  formControlName="tipo_sanguineo" interface="popover">
+                <ion-option value="A+">A+</ion-option>
+                <ion-option value="A-">A-</ion-option>
+                <ion-option value="B+">B+</ion-option>
+                <ion-option value="B-">B-</ion-option>
+                <ion-option value="AB+">AB+</ion-option>
+                <ion-option value="AB-">AB-</ion-option>
+                <ion-option value="O+">O+</ion-option>
+                <ion-option value="O-">O-</ion-option>
+              </ion-select>
+            </ion-item>
+            <ion-item class="input-left">
+              <ion-label class="label-margin-left">Genero</ion-label>
+              <ion-select formControlName="genero" interface="popover">
+                <ion-option value="Masculino">Masculino</ion-option>
+                <ion-option value="Feminino">Feminino</ion-option>
+              </ion-select>
+            </ion-item>
+              
+          <ion-list class="btn-reg">
+            <button ion-button color="info" [disabled]="!registroFamiliarForm.valid" full>Salvar</button>
+          </ion-list>
+        </ion-list>
+      </form>
+
+</ion-content>

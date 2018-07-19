@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar color="info">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Familiares</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content>
+ 
+  <ion-card class="card-success" *ngFor="let f of familiares">
+            
+    <ion-card-header class="title-color">
+      {{f.nome}}
+    </ion-card-header>
+    <ion-card-content class="text-dado pb-1">        
+        
+      {{f.parentesco}}<hr />
+      <ion-icon class="fa-birthday-cake"></ion-icon>&nbsp;&nbsp;{{f.nascimento | date: 'dd/MM/yyyy' : 'utc'}}<hr />
+      <ion-icon class="fa-child"></ion-icon>&nbsp;&nbsp;{{exIdade(f.nascimento)}}<hr />
+      <ion-icon name="ai-droplet"></ion-icon>&nbsp;&nbsp;{{f.tipo_sanguineo}}<hr />
+      <ion-icon class="fa-venus-mars"></ion-icon>&nbsp;&nbsp;{{f.genero}}<hr class="mb-1" />
+    
+      <ion-segment color="info"> 
+        <ion-segment-button (click)="goToControleVacina(f)" value="0">
+          <ion-icon class="fa-user-md"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button (click)="goToModalRegVac(f)" value="1">
+          <ion-icon name="ai-eyedropper"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button (click)="goToCartaoVacina(f)" value="2">
+          <ion-icon class="fa-address-card"></ion-icon> 
+        </ion-segment-button>
+        <ion-segment-button (click)="goToModalEdtFam(f)" value="3">
+          <ion-icon class="fa-edit"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>            
+        
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="goToRegisterFamiliar()" color="success" mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

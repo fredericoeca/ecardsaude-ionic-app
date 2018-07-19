@@ -1,0 +1,47 @@
+<ion-header>
+
+  <ion-navbar color="info">
+      <ion-buttons class="btn-dismiss" start>
+          <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+        </ion-buttons>
+      <ion-title>Registrar vacinação</ion-title>
+    </ion-navbar>
+    
+</ion-header>
+
+<ion-content padding>
+
+  <h5 class="text-h5">{{nome}}</h5>
+
+  <form [formGroup]="registroVacinaForm" (ngSubmit)="insert()">
+    <ion-list inset>
+      <ion-item class="input-left">
+          <ion-label class="label-margin-left">Data</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="data"
+            cancelText=Cancelar doneText=Ok></ion-datetime>
+        </ion-item> 
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="vacina" value={{vacina}} placeholder="Vacina"></ion-input>
+      </ion-item>
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="dose" value={{dose}} placeholder="Dose"></ion-input>
+      </ion-item>  
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="local" placeholder="Local"></ion-input>
+      </ion-item>
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="agente" placeholder="Agente"></ion-input>
+      </ion-item>  
+      <ion-item class="input-left">
+          <ion-input type="text" formControlName="lote" placeholder="Lote"></ion-input>
+        </ion-item>
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="rede" placeholder="Rede"></ion-input>
+      </ion-item>        
+      <ion-list class="btn-edit">
+        <button ion-button color="info" [disabled]="!registroVacinaForm.valid" full>registrar</button>
+      </ion-list>
+    </ion-list>
+  </form>
+
+</ion-content>

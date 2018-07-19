@@ -1,0 +1,63 @@
+page-pets {
+
+    .text-dado {
+        font-size: 90%;
+    }
+
+    .title-color {
+        color: #d39e00;
+    }
+
+    .segment-md .segment-button {
+        font-size: 1rem;
+        border-bottom: transparent;
+        background-color: #ffffff;
+        color: #d39e00;
+    }
+
+    .segment-md .segment-button.segment-activated {
+        border-top: solid 2px #d39e00;
+        border-bottom: transparent;
+        background-color: #ffffff;
+        color: #d39e00;
+        font-weight: bold;
+    }
+
+    .img-btn{
+        width: 60%;
+        margin: 10%;
+    }
+
+    .card-warning {
+        border-left: solid 4px #d39e00;
+    }
+
+    .pd-item {
+        padding-left: 16px;
+    }
+
+    .pr {
+        padding-right: 16px;
+    }
+
+    .pb-1 {
+        padding-bottom: 0;
+    }
+
+    .mb-1 {
+        margin-bottom: 0;
+    }
+
+    .btn {
+        justify-content: center;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
+        border-left: solid 2px #d39e00;
+        border-top: solid 1px #E8E8E8;
+        border-bottom: solid 1px #E8E8E8;
+        border-right: solid 1px #E8E8E8;
+        font-size: 0.8rem;
+        width: 18%; 
+    }
+
+}

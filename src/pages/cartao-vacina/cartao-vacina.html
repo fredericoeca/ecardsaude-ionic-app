@@ -1,0 +1,243 @@
+<ion-header>
+  <ion-navbar color="info">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Cartão de Vacina</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card class="card-secondary margin">
+        <h5 class="text-h5">{{usuario.nome}}</h5>
+    </ion-card>
+
+    <ion-list>
+      
+      <div *ngFor="let v of vacinas">
+
+        <!-- Vacinas para crianças -->
+        <ion-card class="card-warning" *ngIf="v.grupoAlvo === 'Criança' && grupo === 'Criança'" >
+          <ion-row>       
+            <ion-col col-7>
+              <ion-card-header class="title" color="warning">
+                {{v.vacina}}
+              </ion-card-header>
+              <ion-card-content class="fs-90">
+                {{exIdade(v)}}<br />
+                {{v.dose}}
+              </ion-card-content>
+            </ion-col>   
+            <ion-col class="reg-vac" col-5 *ngIf="isRegistro(v, usuario) === true">
+                <span *ngFor="let r of usuario.registro_vacinas">
+                  <span *ngIf="v.vacina === r.vacina && v.dose === r.dose && usuario._id === r.paciente" >
+                    {{r.data | date: 'dd/MM/yyyy':'UTC'}}<br />
+                    {{r.local}}<br />
+                    {{r.agente}}<br />
+                    {{r.lote}}<br />
+                    Rede {{r.rede}}<br />
+                  </span>
+                </span>
+            </ion-col>
+            <ion-col class="em-dia" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === true">
+               <span>Em dia</span>
+            </ion-col>
+
+            <ion-col class="n-reg-vac" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === false">
+              Atrasado
+            </ion-col>
+          
+          </ion-row>
+        </ion-card>
+        
+        <!-- Vacinas para adolecentes do genero masculino -->
+        <ion-card class="card-success" *ngIf="v.grupoAlvo === 'Adolecente' && grupo === 'Adolecente' && usuario.genero === 'Masculino' && v.dose.indexOf('Meninas') === -1">
+          <ion-row>  
+            <ion-col col-7>
+              <ion-card-header class="title" color="success">
+                  {{v.vacina}}
+                </ion-card-header>
+                <ion-card-content class="fs-90">
+                  {{exIdade(v)}}<br />
+                  {{v.dose}}
+                </ion-card-content>
+              </ion-col>   
+              <ion-col class="reg-vac" col-5 *ngIf="isRegistro(v, usuario) === true">
+                  <span *ngFor="let r of usuario.registro_vacinas">
+                    <span *ngIf="v.vacina === r.vacina && v.dose === r.dose && usuario._id === r.paciente" >
+                      {{r.data | date: 'dd/MM/yyyy':'UTC'}}<br />
+                      {{r.local}}<br />
+                      {{r.agente}}<br />
+                      {{r.lote}}<br />
+                      Rede {{r.rede}}<br />
+                    </span>
+                  </span>
+              </ion-col>  
+              
+              <ion-col class="em-dia" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === true">
+                 Em dia
+              </ion-col>
+  
+              <ion-col class="n-reg-vac" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === false">
+                Atrasado
+              </ion-col>
+              
+            </ion-row>
+          </ion-card>
+
+          <!-- Vacinas para adolecentes do genero feminino -->
+          <ion-card class="card-success" *ngIf="v.grupoAlvo === 'Adolecente' && grupo === 'Adolecente' && usuario.genero === 'Feminino' && v.dose.indexOf('Meninos') === -1">
+            <ion-row>  
+              <ion-col col-7>
+                <ion-card-header class="title" color="success">
+                    {{v.vacina}}
+                  </ion-card-header>
+                  <ion-card-content class="fs-90">
+                    {{exIdade(v)}}<br />
+                    {{v.dose}}
+                  </ion-card-content>
+                </ion-col>   
+                <ion-col class="reg-vac" col-5 *ngIf="isRegistro(v, usuario) === true">
+                    <span *ngFor="let r of usuario.registro_vacinas">
+                      <span *ngIf="v.vacina === r.vacina && v.dose === r.dose && usuario._id === r.paciente" >
+                        {{r.data | date: 'dd/MM/yyyy':'UTC'}}<br />
+                        {{r.local}}<br />
+                        {{r.agente}}<br />
+                        {{r.lote}}<br />
+                        Rede {{r.rede}}<br />
+                      </span>
+                    </span>
+                </ion-col>
+                
+            <ion-col class="em-dia" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === true">
+                Em dia
+            </ion-col>
+  
+            <ion-col class="n-reg-vac" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === false">
+              Atrasado
+            </ion-col>
+              
+          </ion-row>
+        </ion-card>
+
+        <!-- Vacinas para adultos -->      
+        <ion-card class="card-info" *ngIf="v.grupoAlvo === 'Adulto' && grupo === 'Adulto'">
+          <ion-row>       
+            <ion-col col-7>
+                <ion-card-header class="title" color="info">
+                    {{v.vacina}}
+                  </ion-card-header>
+                  <ion-card-content class="fs-90">
+                    {{exIdade(v)}}<br />
+                    {{v.dose}}
+                  </ion-card-content>
+                </ion-col>   
+                <ion-col class="reg-vac" col-5 *ngIf="isRegistro(v, usuario) === true">
+                    <span *ngFor="let r of usuario.registro_vacinas">
+                      <span *ngIf="v.vacina === r.vacina && v.dose === r.dose && usuario._id === r.paciente" >
+                        {{r.data | date: 'dd/MM/yyyy':'UTC'}}<br />
+                        {{r.local}}<br />
+                        {{r.agente}}<br />
+                        {{r.lote}}<br />
+                        Rede {{r.rede}}<br />
+                      </span>
+                    </span>
+                </ion-col>
+                
+                <ion-col class="em-dia" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === true">
+                   Em dia
+                </ion-col>
+    
+                <ion-col class="n-reg-vac" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === false">
+                  Atrasado
+                </ion-col>
+                
+              </ion-row>
+            </ion-card>
+
+        <!-- Vacinas para idosos -->
+        <ion-card class="card-secondary" *ngIf="v.grupoAlvo === 'Idoso' && grupo === 'Idoso'">
+          <ion-row>       
+            <ion-col col-7>
+              <ion-card-header class="title" color="secondary">
+                  {{v.vacina}}
+                </ion-card-header>
+                <ion-card-content class="fs-90">
+                  {{exIdade(v)}}<br />
+                  {{v.dose}}
+                </ion-card-content>
+              </ion-col>   
+              <ion-col class="reg-vac" col-5 *ngIf="isRegistro(v, usuario) === true">
+                  <span *ngFor="let r of usuario.registro_vacinas">
+                    <span *ngIf="v.vacina === r.vacina && v.dose === r.dose && usuario._id === r.paciente" >
+                      {{r.data | date: 'dd/MM/yyyy':'UTC'}}<br />
+                      {{r.local}}<br />
+                      {{r.agente}}<br />
+                      {{r.lote}}<br />
+                      Rede {{r.rede}}<br />
+                    </span>
+                  </span>
+              </ion-col>
+              
+              <ion-col class="em-dia" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === true">
+                  Em dia
+              </ion-col>
+  
+              <ion-col class="n-reg-vac" col-5 *ngIf="isRegistro(v, usuario) === false && emDia(v, usuario) === false">
+                Atrasado
+              </ion-col>
+              
+            </ion-row>
+          </ion-card>
+
+      <!-- Vacinas para gestantes -->    
+      <ion-card class="card-danger" *ngIf="v.grupoAlvo === 'Gestante' && grupo === 'Gestante'">
+        <ion-row>       
+          <ion-col col-7>
+            <ion-card-header class="title" color="danger">
+                {{v.vacina}}
+              </ion-card-header>
+              <ion-card-content class="fs-90">
+                {{exIdade(v)}}<br />
+                {{v.dose}}
+              </ion-card-content>
+            </ion-col>   
+            <ion-col class="reg-vac" col-5 *ngIf="isRegistro(v, usuario) === true">
+                <span *ngFor="let r of usuario.registro_vacinas">
+                  <span *ngIf="v.vacina === r.vacina && v.dose === r.dose && usuario._id === r.paciente" >
+                    {{r.data | date: 'dd/MM/yyyy':'UTC'}}<br />
+                    {{r.local}}<br />
+                    {{r.agente}}<br />
+                    {{r.lote}}<br />
+                    Rede {{r.rede}}<br />
+                  </span>
+                </span>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>     
+
+    </ion-list>
+
+  </ion-content>
+
+<ion-footer class="height-footer">      
+    <ion-segment [(ngModel)]="grupo" color="info"> 
+      <ion-segment-button value="Criança">
+        Criança
+      </ion-segment-button>
+      <ion-segment-button value="Adolecente">
+        Jovem
+      </ion-segment-button>
+      <ion-segment-button value="Adulto">
+        Adulto 
+      </ion-segment-button>
+      <ion-segment-button value="Idoso">
+        Idoso
+      </ion-segment-button>
+      <ion-segment-button value="Gestante">
+        Gestante
+      </ion-segment-button>
+    </ion-segment>      
+  </ion-footer>

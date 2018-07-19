@@ -1,0 +1,61 @@
+<ion-header>
+
+  <ion-navbar color="info">
+      <ion-buttons class="btn-dismiss" start>
+          <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+        </ion-buttons>
+    <ion-title>Editar Usuário</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <form [formGroup]="editUsuarioForm" (ngSubmit)="edit()">
+      <ion-list inset>
+        <ion-item class="input-left">
+          <ion-input type="text" formControlName="nome" value={{nome}} placeholder="Nome"></ion-input>
+        </ion-item>  
+        <ion-item class="input-left">
+            <ion-label class="label-margin-left">{{nascimento | date : 'dd/MM/yyyy' : 'UTC'}}</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY"  formControlName="nascimento"
+              cancelText=Cancelar doneText=Ok></ion-datetime>
+          <!--<ion-input type="text" formControlName="nascimento" value={{nascimento}} placeholder="Nascimento"></ion-input>-->
+        </ion-item>
+        <ion-item class="input-left">
+            <ion-label class="label-margin-left">{{genero}}</ion-label>
+            <ion-select formControlName="genero" interface="popover">
+              <ion-option value="Masculino">Masculino</ion-option>
+              <ion-option value="Feminino">Feminino</ion-option>
+            </ion-select>
+            <!--<ion-input type="text" formControlName="genero" value={{genero}} placeholder="Genero"></ion-input>-->
+          </ion-item>    
+        <ion-item class="input-left">
+            <ion-label class="label-margin-left">{{tipo_sanguineo}}</ion-label>
+            <ion-select  formControlName="tipo_sanguineo" interface="popover">
+              <ion-option value="A+">A+</ion-option>
+              <ion-option value="A-">A-</ion-option>
+              <ion-option value="B+">B+</ion-option>
+              <ion-option value="B-">B-</ion-option>
+              <ion-option value="AB+">AB+</ion-option>
+              <ion-option value="AB-">AB-</ion-option>
+              <ion-option value="O+">O+</ion-option>
+              <ion-option value="O-">O-</ion-option>
+            </ion-select>
+          <!--<ion-input type="text" formControlName="tipo_sanguineo" value={{tipo_sanguineo}} placeholder="Tipo Sanguineo"></ion-input>-->
+        </ion-item>        
+        <ion-item class="input-left">
+            <ion-input type="text" formControlName="cidade" value={{cidade}} placeholder="Cidade"></ion-input>
+          </ion-item>
+        <ion-item class="input-left">
+          <ion-input type="text" formControlName="estado" value={{estado}} placeholder="Estado"></ion-input>
+        </ion-item>        
+        <ion-list class="btn-edit">
+          <button ion-button color="info" [disabled]="!editUsuarioForm.valid" full>editar</button>
+        </ion-list>
+      </ion-list>
+    </form>
+    <ion-list class="btn-apagar">
+      <button ion-button color="danger" (click)="delete()" full>Apagar</button>
+    </ion-list>
+</ion-content>

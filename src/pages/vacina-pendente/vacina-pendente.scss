@@ -1,0 +1,58 @@
+page-vacina-pendente {
+
+    .card-info {
+        border-left: solid 4px #117a8b; 
+    }
+
+    .card-success {
+        border-left: solid 4px #28a745;
+    }
+
+    .btn-border-info {
+        border-left: solid 4px #117a8b;
+        border-right: solid 1px #dae0e5;
+        border-top: solid 1px #dae0e5;
+        border-bottom: solid 1px #dae0e5;
+    }
+
+    .btn-border-success {
+        border-left: solid 4px #28a745;
+        border-right: solid 1px #dae0e5;
+        border-top: solid 1px #dae0e5;
+        border-bottom: solid 1px #dae0e5;
+    }
+
+    .s-1 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .fs-90 {
+        font-size: 90%;
+    }
+
+    .p-1 {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .pb-1 {
+        padding-bottom: 2px;
+    }
+
+    .pt-1 {
+        padding-top: 10px;
+    }
+
+    .segment-md .segment-button {
+        font-size: 1rem;
+        background-color: #ffffff;
+        color: #545b62;
+    }
+
+    .segment-md .segment-button.segment-activated {
+        border-top: solid 2px #117a8b;
+        border-bottom: transparent;
+        background-color: #ffffff;
+    }
+}

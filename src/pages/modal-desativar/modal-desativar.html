@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar color="info">
+      <ion-buttons class="btn-dismiss" start>
+          <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+        </ion-buttons>
+    <ion-title>Desativar Conta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+
+    <p class="p-1">{{nome}}, deseja realmente desativar sua conta?</p>
+
+    <div class="p-1">
+    <ion-card class="card-danger">
+      <ion-card-content color='danger' class="s-1">
+        - Ao clicar para desativar a conta, você será redirecionado para tela de login.<br />
+        - Para reativar a conta vá ao site e digite email e senha na tela de login.
+      </ion-card-content>
+    </ion-card>
+    </div>
+    
+    <ion-list class="p-1 btn-p">
+      <button ion-button color="danger" (click)="desativar()" full>desativar</button>
+    </ion-list>
+
+  </ion-list>
+
+</ion-content>

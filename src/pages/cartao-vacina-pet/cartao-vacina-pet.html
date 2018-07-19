@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="info">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Cartão de Vacina Pet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card class="card-secondary margin">
+        <h5 class="text-h5">{{nome}}</h5>
+    </ion-card>
+    <div *ngFor="let v of vacinaspet">
+    <ion-card class="card-warning" *ngIf="v.pet === especie">
+      <ion-card-header class="txt-vac">
+        {{v.vacina}}
+      </ion-card-header>
+      <ion-card-content>
+        <p><small><b>Descrição: </b>{{v.descricao}}</small></p>
+        <div *ngFor="let r of regvacinas">
+          <ion-card class="card-success" *ngIf="r.pet === _id && r.vacina === v.vacina">
+            <ion-card-content class="text-dado">
+              {{r.data | date: 'dd/MM/yyyy' : 'utc'}}<hr />
+              {{r.local}}<hr />
+              {{r.agente}}<hr />
+              {{r.lote}}
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    </div>
+</ion-content>

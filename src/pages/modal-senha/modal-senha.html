@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar color="info">
+    <ion-buttons class="btn-dismiss" start>
+        <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    <ion-title>Trocar Senha</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="changePasswordForm" (ngSubmit)="change()">
+    <ion-list inset>
+      <ion-item class="input-left">
+        <ion-input type="password" formControlName="senhaAtual" placeholder="Senha atual"></ion-input>
+      </ion-item>
+      <ion-item class="input-left">
+          <ion-input type="password" formControlName="novaSenha" placeholder="Nova senha"></ion-input>
+        </ion-item>
+      <ion-item class="input-left">
+          <ion-input type="password" formControlName="confSenha" placeholder="Confirmação senha"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-list class="btn-padding">
+        <button ion-button color="info" [disabled]="!changePasswordForm.valid" full>trocar senha</button>
+      </ion-list>
+  </form>
+</ion-content>

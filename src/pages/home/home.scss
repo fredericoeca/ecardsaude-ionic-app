@@ -1,0 +1,103 @@
+page-home {
+
+    .row {
+        margin: 10px 0 40px 0;
+    }
+
+    .card-menu {
+        margin: 10px 5px 0 5px;
+        padding: 5px;
+        background-color: #f5f5f5;
+        border: solid 1px #f5f5f5;
+        color: #117a8b;
+        text-align: center;
+        display: grid;
+        align-items: center;
+        height: 100%;
+    }
+
+    .text-sett{
+        text-align: center;
+        display: grid;
+        align-items: center;
+        height: 40px;
+        border: solid 1px #f5f5f5;
+        margin: 0 5px 0 5px;
+        color: #545b62
+    }
+
+    .icon-size{
+        font-size: 2.5rem;
+    }
+
+    .text-size{
+        font-size: 1.25rem;
+    }
+
+    .text-dado {
+        font-size: 90%;
+    }
+
+    .position-btn {
+        right: 0;
+        margin-right: 8px;
+    }
+
+    .cor-text{
+        color: #117a8b;
+    }
+    
+    .img-perfil{
+        border-radius: 50%;
+        border: solid 1px #e8e8e8;
+    }
+
+    .btn {
+        margin-left: 5px;
+        margin-right: 5px;      
+        text-transform: none;
+        background-color: #ffffff;
+        color: #117a8b;
+        border-left: solid 4px #117a8b;
+    }
+
+    .pd-item {
+        padding-left: 16px;
+    }
+
+    .pr {
+        padding-right: 16px;
+    }
+
+    .grid {
+        padding: 16px;
+    }
+
+    .s-1 {
+        font-size: 1rem;
+    }
+
+    .btn-border {
+        border-left: solid 4px #117a8b;
+        border-right: solid 1px #dae0e5;
+        border-top: solid 1px #dae0e5;
+        border-bottom: solid 1px #dae0e5;
+    }
+
+    .segment-md .segment-button {
+        font-size: 1rem;
+        background-color: #ffffff;
+        color: #545b62;
+    }
+
+    .segment-md .segment-button.segment-activated {
+        border-top: solid 2px #117a8b;
+        border-bottom: transparent;
+        background-color: #ffffff;
+    }
+
+    .button-md { 
+        padding: 0;
+    }
+}
+

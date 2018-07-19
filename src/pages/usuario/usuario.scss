@@ -1,0 +1,61 @@
+page-usuario {
+
+    .text-dado {
+        font-size: 90%;
+    }
+
+    .position-btn {
+        right: 0;
+        margin-right: 8px;
+    }
+
+    .cor-text{
+        color: #117a8b;
+    }
+    
+    .img-perfil{
+        border-radius: 50%;
+        border: solid 1px #e8e8e8;
+    }
+
+    .pd-item {
+        text-align: center;
+    }
+
+    .pr {
+        padding-right: 16px;
+    }
+
+    .grid {
+        padding: 16px;
+    }
+
+    .s-1 {
+        font-size: 1rem;
+    }
+
+    .btn-border {
+        border-left: solid 4px #117a8b;
+        border-right: solid 1px #dae0e5;
+        border-top: solid 1px #dae0e5;
+        border-bottom: solid 1px #dae0e5;
+    }
+
+    .segment-md .segment-button {
+        font-size: 1rem;
+        background-color: #ffffff;
+        color: #545b62;
+    }
+
+    .segment-md .segment-button.segment-activated {
+        border-top: solid 2px #117a8b;
+        border-bottom: transparent;
+        background-color: #ffffff;
+    }
+
+
+    .button-md { 
+        padding: 0;
+    }
+
+}

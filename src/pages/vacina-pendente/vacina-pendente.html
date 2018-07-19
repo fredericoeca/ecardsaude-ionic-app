@@ -1,0 +1,69 @@
+<ion-header>
+
+    <ion-navbar color="info">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Vacinas Pendentes</ion-title>
+      </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngFor="let v of vacinas">
+    <div *ngIf="usuario">
+    <div *ngIf="selecao === 'usuario'">
+      <ion-card class="card-info" *ngIf="alerta(idade(usuario.nascimento), v, usuario)">
+        <ion-card-content class="pb-1">
+            <p color="secondary">Olá <b>{{usuario.nome}}</b>, você deve tomar a vacina <b>{{v.vacina}}</b> - {{v.dose}}.
+        </ion-card-content>
+        <ion-row class="p-1">
+          <ion-col class="pt-1">
+            <p color="secondary">Já se vacinou?</p>
+          </ion-col>
+          <ion-col>
+              <button ion-button class="btn-border-info" color="info" small clear full>
+                  <p class="s-1" (click)="goToModalRegVac(usuario, v)">registre</p>
+              </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </div>
+
+    <div *ngIf="selecao === 'familiares'">
+      <div *ngFor="let f of usuario.familiar">
+        <ion-card class="card-success" *ngIf="alerta(idade(f.nascimento), v, f)">
+          <ion-card-content class="pb-1" *ngIf="f.genero === 'Masculino'">
+              <p color="secondary">O seu {{f.parentesco}} <b>{{f.nome}}</b>, deve tomar a vacina <b>{{v.vacina}}</b> - {{v.dose}}.
+          </ion-card-content>
+          <ion-card-content class="pb-1" *ngIf="f.genero === 'Feminino'">
+              <p color="secondary">A sua {{f.parentesco}} <b>{{f.nome}}</b>, deve tomar a vacina <b>{{v.vacina}}</b> - {{v.dose}}.
+          </ion-card-content>
+          <ion-row class="p-1">
+            <ion-col class="pt-1">
+              <p color="secondary">Já se vacinou?</p>
+            </ion-col>
+            <ion-col>
+                <button ion-button class="btn-border-success" color="success" small clear full>
+                    <p class="s-1" (click)="goToModalRegVac(f, v)">registre</p>
+                </button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+      </div>
+    </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="height-footer">      
+    <ion-segment [(ngModel)]="selecao" color="info"> 
+      <ion-segment-button value="usuario">
+        Usuário
+      </ion-segment-button>
+      <ion-segment-button value="familiares">
+        Familiares
+      </ion-segment-button>
+    </ion-segment>      
+  </ion-footer> 

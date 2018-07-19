@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar color="info">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Perfil do Usuário</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content padding>
+    
+    <div *ngIf="usuario">
+  
+      <div class="pd-item">
+        <img class="img-perfil" width="80" height="80" src="{{usuario.foto}}" />
+        <!--<button ion-button color="info" clear>
+          <ion-icon name="ai-camera"></ion-icon>
+        </button>-->                  
+      </div>
+    
+      <h4 class="pd-item">{{usuario.nome}}</h4><br />
+      <ion-item class="pr"><p class="text-dado"><ion-icon class="fa-at"></ion-icon>&nbsp;&nbsp;&nbsp; {{usuario.email}}</p></ion-item>
+      <ion-item class="pr"><p class="text-dado"><ion-icon class="fa-birthday-cake"></ion-icon>&nbsp;&nbsp;&nbsp; {{usuario.nascimento | date: 'dd/MM/yyyy':'UTC'}}</p></ion-item>
+      <ion-item class="pr"><p class="text-dado"><ion-icon class="fa-child"></ion-icon>&nbsp;&nbsp;&nbsp; {{exIdade(usuario.nascimento)}}</p></ion-item>
+      <ion-item class="pr"><p class="text-dado"><ion-icon name="ai-droplet"></ion-icon>&nbsp;&nbsp;&nbsp; {{usuario.tipo_sanguineo}}</p></ion-item>
+      <ion-item class="pr"><p class="text-dado"><ion-icon class="fa-venus-mars"></ion-icon>&nbsp;&nbsp;&nbsp; {{usuario.genero}}</p></ion-item>
+      <ion-item class="pr"><p class="text-dado"><ion-icon name="ai-location"></ion-icon>&nbsp;&nbsp;&nbsp; {{usuario.cidade}}, {{usuario.estado}}</p></ion-item>
+  
+    </div>
+  </ion-content>
+  
+  <ion-footer class="height-footer">      
+      <ion-segment color="info"> 
+        <ion-segment-button value="trocar-foto" (click)="goToModalRegVac(usuario)">
+          <ion-icon name="ai-eyedropper"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="trocar-senha" (click)="openModalSenha()">
+          <ion-icon class="fa-unlock"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="editar" (click)="openModalEdit(usuario)">
+          <ion-icon class="fa-edit"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="desativar" (click)="openModalDesativar(usuario)">
+          <ion-icon class="fa-ban"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>      
+    </ion-footer> 

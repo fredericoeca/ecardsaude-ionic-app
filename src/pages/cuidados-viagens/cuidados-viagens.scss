@@ -1,0 +1,84 @@
+page-cuidados-viagens {
+
+    .float-right {
+        float: right!important;
+    }
+
+    .height-footer {
+        height: 40px;
+    }
+
+    .pb-1 {
+        padding-bottom: 0;
+    }
+
+    .p-1 {
+        padding-left: 1rem;
+    }
+
+    .p-2 {
+        padding-left: 2rem;
+    }
+
+    .txt{
+        font-size: 80%;
+        text-align: justify;
+    }
+
+    .color-icon {
+        color: #117a8b;
+    }
+
+    .segment-md .segment-button {
+        font-size: 1.2rem;
+        background-color: #ffffff;
+        color: #545b62;
+    }
+
+    .segment-md .segment-button.segment-activated {
+        border-top: solid 2px #117a8b;
+        border-bottom: transparent;
+        background-color: #ffffff;
+    }
+    
+    .right-aling{
+        right: 0;
+    }
+
+    .size-icon {
+        font-size: 2rem;
+    }
+
+    .card-warning {
+        border-left: solid 5px #d39e00;
+    }
+
+    .card-primary {
+        border-left: solid 5px #007bff;
+    }
+
+    .card-info {
+        border-left: solid 5px #117a8b;
+    }
+
+    .card-secondary {
+        border-left: solid 5px #545b62;
+    }
+
+    .card-success {
+        border-left: solid 5px #1e7e34;
+    }
+
+    .card-danger {
+        border-left: solid 5px #bd2130;
+    }
+
+    .card-light {
+        border-left: solid 5px #dae0e5;
+    }
+
+    .card-dark {
+        border-left: solid 5px #23272b;
+    }
+    
+}

@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar color="info">
+      <ion-buttons class="btn-dismiss" start>
+          <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+        </ion-buttons>
+      <ion-title>Editar Vacinação</ion-title>
+    </ion-navbar>
+    
+</ion-header>
+
+<ion-content padding>
+
+  <h5 class="text-h5">{{nome}}</h5>
+
+  <form [formGroup]="editarVacinaForm" (ngSubmit)="updateVacinacao()">
+    <ion-list inset>
+      <ion-item class="input-left">
+        <ion-label class="label-margin-left">{{data | date: 'dd/MM/yyyy' : 'UTC'}}</ion-label>
+        <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY"  formControlName="data"
+          cancelText=Cancelar doneText=Ok></ion-datetime>
+        <!--<ion-input type="text" formControlName="data" value={{data}} placeholder="Data"></ion-input>-->
+      </ion-item> 
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="vacina" value={{vacina}} placeholder="Vacina"></ion-input>
+      </ion-item>
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="dose" value={{dose}} placeholder="Dose"></ion-input>
+      </ion-item>  
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="local" value={{local}} placeholder="Local"></ion-input>
+      </ion-item>
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="agente" value={{agente}} placeholder="Agente"></ion-input>
+      </ion-item>  
+      <ion-item class="input-left">
+          <ion-input type="text" formControlName="lote" value={{lote}} placeholder="Lote"></ion-input>
+        </ion-item>
+      <ion-item class="input-left">
+        <ion-input type="text" formControlName="rede" value={{rede}} placeholder="Rede"></ion-input>
+      </ion-item>        
+      <ion-list class="btn-edit">
+        <button ion-button color="info" [disabled]="!editarVacinaForm.valid" full>editar</button>
+      </ion-list>
+    </ion-list>
+  </form>
+  <ion-list class="btn-apagar">
+      <button ion-button color="danger" (click)="confirmDelete()" full>Apagar</button>
+    </ion-list>
+
+</ion-content>

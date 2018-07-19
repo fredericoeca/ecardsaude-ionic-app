@@ -1,0 +1,33 @@
+<ion-header>
+
+    <ion-navbar color="info">
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Controle de Vacinas</ion-title>
+      </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngFor="let rv of regVacinas">
+    <ion-card class="card-info" *ngIf="rv.paciente === _id">
+      <ion-card-content class="pb-1"> 
+        <div class="float-right">
+            <button ion-button class="btn" (click)="editarRegistro(rv)" color="info" small clear full>
+              editar
+            </button> 
+        </div>
+        <p class="title"><b>{{rv.vacina}}</b></p>        
+        <p>{{rv.dose}}</p>
+        <p>{{rv.data | date:'dd/MM/yyyy':'UTC'}}</p>
+        <p>{{rv.local}}</p>
+        <p>{{rv.agente}}</p>
+        <p>{{rv.lote}}</p>
+        <p>Rede {{rv.rede}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>

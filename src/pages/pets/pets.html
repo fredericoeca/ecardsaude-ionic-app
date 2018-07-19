@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-navbar color="info">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Pets</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content>
+ 
+  <ion-card class="card-warning" *ngFor="let p of pets">
+    <ion-card-header class="title-color">
+      {{p.nome}}
+    </ion-card-header>
+    <ion-card-content class="text-dado pb-1">
+        
+      {{p.especie}}<hr />
+      <ion-icon class="fa-birthday-cake"></ion-icon>&nbsp;&nbsp;{{p.nascimento | date: 'dd/MM/yyyy' : 'utc'}}<hr />
+      <ion-icon class="fa-child"></ion-icon>&nbsp;&nbsp;{{exIdade(p.nascimento)}}<hr />
+      <ion-icon name="ai-droplet"></ion-icon>&nbsp;&nbsp;{{p.raca}}<hr />      
+      <ion-icon class="fa-venus-mars"></ion-icon>&nbsp;&nbsp;{{p.sexo}}<hr class="mb-1" />
+
+      <ion-segment color="info"> 
+        <ion-segment-button (click)="goToControleVacina(p)" value="1">
+          <ion-icon class="fa-user-md"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button (click)="goToCartaoVacina(p)" value="2">
+          <ion-icon class="fa-address-card"></ion-icon> 
+        </ion-segment-button>
+        <ion-segment-button (click)="goToModalEdtPet(p)" value="3">
+          <ion-icon class="fa-edit"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="goToRegPet()" color="warning" mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

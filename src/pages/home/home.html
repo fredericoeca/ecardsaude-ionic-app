@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar color="info">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>   
+
+  <div class="pd-item">
+    <img class="img-perfil" width="60" height="60" src="{{usuario.foto}}" />
+  </div>
+
+  <h4 class="pd-item">{{usuario.nome}}</h4>
+
+  <ion-row>
+    <ion-col>
+      <div class="card-menu">
+        <button ion-button color="info" (click)="goToPerfil()" clear>
+          <span class="icon-size"><ion-icon name="person"></ion-icon></span>
+        </button>
+      </div>
+      <div class="text-sett">
+        <span class="text-size">Perfil</span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="card-menu">
+        <button ion-button color="info" (click)="goToNotificacoes(usuario)" clear>
+          <span class="icon-size"><ion-icon class="fa-bell"></ion-icon></span>
+        </button>
+      </div>
+      <div class="text-sett">
+        <span class="text-size">Notificações</span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="card-menu">
+        <button ion-button color="info" (click)="goToCartaoVacina()" clear>
+          <span class="icon-size"><ion-icon class="fa-address-card"></ion-icon></span>
+        </button>
+      </div>
+      <div class="text-sett">
+        <span class="text-size">Cartão de Vacina</span>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="row">
+    <ion-col>
+      <div class="card-menu">
+        <button ion-button color="info" (click)="goToFamiliar()" clear>
+          <span class="icon-size"><ion-icon name="ai-man-woman"></ion-icon></span>
+        </button>
+      </div>
+      <div class="text-sett">
+        <span class="text-size">Familiares</span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="card-menu">
+        <button ion-button color="info" (click)="goToVacPend()" clear>
+          <span class="icon-size"><ion-icon name="ai-alarm"></ion-icon></span>
+        </button>
+      </div>
+      <div class="text-sett">
+        <span class="text-size">Vacinas Pendentes</span>
+      </div>
+    </ion-col>
+    <ion-col>
+      <div class="card-menu">
+        <button ion-button color="info" (click)="goToContVacinas(usuario)" clear>
+          <span class="icon-size"><ion-icon class="fa-user-md"></ion-icon></span>
+        </button>
+      </div>
+      <div class="text-sett">
+        <span class="text-size">Controle de Vacinas</span>
+      </div>
+    </ion-col>     
+  </ion-row>
+</ion-content>

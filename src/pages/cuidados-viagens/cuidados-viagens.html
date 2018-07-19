@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color="info">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cuidados em Viagens</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    
+    <div *ngFor="let c of cuidados">
+      <ion-card class="card-info">
+        <ion-card-header color="info">
+          {{c.titulo}}
+        </ion-card-header>
+        <ion-card-content class="txt">
+          <b>{{c.tipo}}</b><br /><br />
+          <b>Descrição: </b>{{c.descricao}}<br /><br />
+          <b>Cuidados</b><br />
+            <div class="p-1" *ngFor="let cd of c.cuidados">
+                <ion-icon name="arrow-dropright"></ion-icon> {{cd.cuidado}}
+            </div><br />
+          <b>Locais Atingidos</b><br />
+            <div class="p-2" *ngFor="let p of c.paises">
+                <ion-icon name="arrow-dropright"></ion-icon> {{p.local}}
+            </div><br />
+            <span class="p-1">Regiões</span>
+            <div class="p-2" *ngFor="let r of c.regioes">
+                <ion-icon name="arrow-dropright"></ion-icon> {{r.local}}
+            </div><br />
+            <span class="p-1">Estados</span>
+            <div class="p-2" *ngFor="let e of c.estados">
+                <ion-icon name="arrow-dropright"></ion-icon> {{e.local}}
+            </div><br />
+            <span class="p-1">Cidades</span>
+            <div class="p-2" *ngFor="let c of c.cidades">
+                <ion-icon name="arrow-dropright"></ion-icon> {{c.local}}
+            </div><br />
+          <b>Observações: </b>{{c.observacoes}}<br />
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-list>
+
+</ion-content>

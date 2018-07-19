@@ -1,0 +1,42 @@
+<ion-header>
+
+  <ion-navbar color="info">
+    <ion-buttons class="btn-dismiss" start>
+      <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>Editar Pet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="editPetForm" (ngSubmit)="editPet()">
+    <ion-list inset>
+      <ion-item class="input-left">
+          <ion-input type="text" formControlName="nome" value={{nome}} placeholder="Nome"></ion-input>
+        </ion-item> 
+        <ion-item class="input-left">
+          <ion-input type="text" formControlName="especie" value={{especie}} placeholder="Especie"></ion-input>
+        </ion-item> 
+        <ion-item class="input-left">
+          <ion-input type="text" formControlName="raca" value={{raca}} placeholder="Raça"></ion-input>
+        </ion-item>
+        <ion-item class="input-left">
+            <ion-input type="text" formControlName="sexo" value={{sexo}} placeholder="Sexo"></ion-input>
+          </ion-item>
+        <ion-item class="input-left">
+          <ion-label class="label-margin-left">{{nascimento | date:'dd/MM/yyyy' : 'UTC'}}</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="nascimento"
+            cancelText=Cancelar doneText=Ok></ion-datetime>
+        </ion-item>  
+        <ion-list class="btn-edit">
+          <button ion-button color="info" [disabled]="!editPetForm.valid" full>Editar</button>
+        </ion-list>        
+    </ion-list>
+  </form>
+  <ion-list class="btn-apagar">
+    <button ion-button color="danger" (click)="delPet()" full>Apagar</button>
+  </ion-list>
+
+</ion-content>

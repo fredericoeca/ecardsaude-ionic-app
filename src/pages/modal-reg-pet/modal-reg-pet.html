@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-navbar color="info">
+    <ion-buttons class="btn-dismiss" start>
+      <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>Registrar Pet</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="regPetForm" (ngSubmit)="registerPet()">
+    <ion-list inset>
+      <ion-item class="input-left">
+          <ion-input type="text" formControlName="nome" placeholder="Nome"></ion-input>
+        </ion-item> 
+        <ion-item class="input-left">
+          <ion-input type="text" formControlName="especie" placeholder="Especie"></ion-input>
+        </ion-item> 
+        <ion-item class="input-left">
+          <ion-input type="text" formControlName="raca" placeholder="Raça"></ion-input>
+        </ion-item> 
+        <ion-item class="input-left">
+          <ion-input type="text" formControlName="sexo" placeholder="Sexo"></ion-input>
+        </ion-item>
+        <ion-item class="input-left">
+          <ion-label class="label-margin-left">Nascimento</ion-label>
+          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MM YYYY" formControlName="nascimento"
+            cancelText=Cancelar doneText=Ok></ion-datetime>
+        </ion-item>  
+        <ion-list class="btn-reg">
+          <button ion-button color="info" [disabled]="!regPetForm.valid" full>Salvar</button>
+        </ion-list>
+    </ion-list>
+  </form>
+
+</ion-content>

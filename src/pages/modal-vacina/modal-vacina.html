@@ -1,0 +1,50 @@
+<ion-header>
+
+  <ion-navbar color="info">
+      <ion-buttons class="btn-dismiss" start>
+        <button ion-button (click)="dismiss()"><ion-icon name="close"></ion-icon></button>
+      </ion-buttons>
+    <ion-title>Vacina</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-list class="p-screen fs-90">
+
+    <h5 class="mb sub-title warning" *ngIf="grupoAlvo === 'Criança'">{{vacina}}
+        <span class="float-right">
+            <ion-col><ion-icon name="ai-calendar" *ngIf="pni"></ion-icon></ion-col>
+        </span>
+    </h5>
+    <h5 class="mb sub-title success" *ngIf="grupoAlvo === 'Adolecente'">{{vacina}}
+        <span class="float-right">
+            <ion-col><ion-icon name="ai-calendar" *ngIf="pni"></ion-icon></ion-col>
+        </span>
+    </h5>
+    <h5 class="mb sub-title info" *ngIf="grupoAlvo === 'Adulto'">{{vacina}}
+        <span class="float-right">
+            <ion-col><ion-icon name="ai-calendar" *ngIf="pni"></ion-icon></ion-col>
+        </span>
+    </h5>
+    <h5 class="mb sub-title secondary" *ngIf="grupoAlvo === 'Idoso'">{{vacina}}
+        <span class="float-right">
+            <ion-col><ion-icon name="ai-calendar" *ngIf="pni"></ion-icon></ion-col>
+        </span>
+    </h5>
+    <h5 class="mb sub-title danger" *ngIf="grupoAlvo === 'Gestante'">{{vacina}}
+        <span class="float-right">
+            <ion-col><ion-icon name="ai-calendar" *ngIf="pni"></ion-icon></ion-col>
+        </span>
+    </h5>
+    <p class="text-justify pl-1"><b>Dose:</b> {{dose}}</p>
+    <p class="text-justify pl-1"><b *ngIf="idade">Idade:</b> {{idade}}</p>    
+    <p class="text-justify pl-1"><b *ngIf="descricao">Descrição:</b> {{descricao}}</p>
+    <p class="text-justify pl-1"><b *ngIf="contraIndicacao">Contra indicação:</b> {{contraIndicacao}}</p>
+    <p class="text-justify pl-1"><b *ngIf="possiveisReacoes">Possiveis reações:</b> {{possiveisReacoes}}</p>
+    <p class="text-justify pl-1"><b *ngIf="observacoes">Observações:</b> {{observacoes}}</p>
+      
+  </ion-list>
+    
+</ion-content>
